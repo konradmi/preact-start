@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "types": ["vinxi/types/client"],
+    "outDir": "./dist",
+    "declaration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+  },
+  "include": ["./src"],
+}
