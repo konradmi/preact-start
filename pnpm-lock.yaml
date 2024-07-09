@@ -34,7 +34,7 @@ importers:
         specifier: ^5.5.3
         version: 5.5.3
       vinxi:
-        specifier: ^0.3.11
+        specifier: ^0.3.12
         version: 0.3.12(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.1)
 
 packages:
