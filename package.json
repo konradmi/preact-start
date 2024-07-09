@@ -1,6 +1,6 @@
 {
   "name": "preact-start",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "Minimal Preact metaframework",
   "repository": "git@github.com:konradmi/preact-start.git",
@@ -9,14 +9,30 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./router": "./dist/router.js",
     "./server": "./dist/server.js",
     "./client": "./dist/client.js"
   },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ],
+      "router": [
+        "./dist/router.d.ts"
+      ],
+      "server": [
+        "./dist/serve.d.ts"
+      ],
+      "client": [
+        "./dist/client.d.ts"
+      ]
+    }
+  },
   "scripts": {
-    "dev": "vinxi dev",
     "build": "rm -rf .dist && tsc"
   },
   "dependencies": {
