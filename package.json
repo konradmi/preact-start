@@ -1,6 +1,6 @@
 {
   "name": "preact-start",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "description": "Minimal Preact metaframework",
   "repository": "git@github.com:konradmi/preact-start.git",
@@ -40,16 +40,12 @@
     "es-module-lexer": "^1.5.4",
     "preact-render-to-string": "^6.5.5",
     "preact-router": "^4.1.2",
-    "radix3": "^1.1.2"
+    "radix3": "^1.1.2",
+    "vinxi": "^0.3.12"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.2",
     "preact": "^10.22.1",
-    "typescript": "^5.5.3",
-    "vinxi": "^0.3.12"
-  },
-  "peerDependencies": {
-    "preact": "^10.22.1",
-    "vinxi": "^0.3.12"
+    "typescript": "^5.5.3"
   }
 }
