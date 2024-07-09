@@ -1,9 +1,9 @@
 import { eventHandler, H3Event } from "vinxi/http"
 import { getManifest } from "vinxi/manifest"
 import { renderToStringAsync } from "preact-render-to-string"
-import Document from "../Document"
+import Document from "./Document"
 import App from "../App"
-import { createAssets } from '../assets' 
+import { createAssets } from './assets' 
 import { SSRRedirect } from '../types'
 
 export const startServer = () => eventHandler(async (event) => {
