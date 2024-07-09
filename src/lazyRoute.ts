@@ -1,7 +1,7 @@
 import { Fragment, createElement } from "preact";
 import { lazy, forwardRef, useLayoutEffect } from 'preact/compat';
 import { cleanupStyles, preloadStyles, updateStyles } from "vinxi/css";
-import type { Asset, Manifest, LazyComponent, Loader } from "./types";
+import type { Asset, Manifest, LazyComponent, Loader } from "./types.js";
 
 export const renderAsset = ({ tag, attrs: { key, ...attrs } = { key: undefined }, children }: Asset) => {
 	switch (tag) {

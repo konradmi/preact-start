@@ -1,7 +1,7 @@
 import { useEffect } from 'preact/hooks'
 import { route } from 'preact-router'
 
-import { SSRRedirect } from '../types'
+import { SSRRedirect } from '../types.js'
 
 const Redirect = ({ to, replace = true }: { to: string, replace?: boolean }) => {
   useEffect(() => {

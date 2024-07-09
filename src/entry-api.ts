@@ -1,7 +1,7 @@
 import fileRoutes from "vinxi/routes";
 import { createRouter } from 'radix3'
 import { eventHandler } from "vinxi/http"
-import { HTTPMethod } from "./types"
+import { HTTPMethod } from "./types.js"
 import { APIEvent } from "./server"
 
 const router = createRouter()

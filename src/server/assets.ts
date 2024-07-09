@@ -2,7 +2,7 @@ import { Fragment, createElement } from "preact";
 import { lazy } from "preact/compat";
 import { updateStyles } from "vinxi/css";
 import type { Asset, Manifest } from "../types";
-import { renderAsset } from "../lazyRoute";
+import { renderAsset } from "../lazyRoute.js";
 
 export const createAssets = (src: string, manifest: Manifest) =>
 	lazy(async () => {

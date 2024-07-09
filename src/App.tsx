@@ -2,7 +2,7 @@ import { Router, Route } from 'preact-router'
 import { Suspense } from 'preact/compat'
 import { getManifest } from "vinxi/manifest"
 import fileRoutes from "vinxi/routes";
-import lazyRoute from './lazyRoute'
+import lazyRoute from './lazyRoute.js'
 
 
 type AppProps = {
