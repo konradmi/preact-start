@@ -28,7 +28,7 @@ export const createPreactStartApp = () => {
             app
           );
         },
-        plugins: () => [serverFunctions.client()],
+        plugins: () => [preact(), serverFunctions.client()],
         target: "browser",
         base: "/_build",
       },
@@ -64,6 +64,7 @@ export const createPreactStartApp = () => {
             app
           );
         },
+        plugins: () => [preact()],
         target: "server",
       },
     ],
