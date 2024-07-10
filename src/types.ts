@@ -1,4 +1,5 @@
 import { getManifest } from "vinxi/manifest"
+import { H3Event } from "vinxi/http"
 
 export type Asset = {
   tag: 'script' | 'link' | 'style',
@@ -31,4 +32,6 @@ export type Loader = {
 }
 
 export type HTTPMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+
+export type APIEvent = H3Event & { params: Record<string, string> }
 

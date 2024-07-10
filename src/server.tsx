@@ -1,10 +1,10 @@
-import { eventHandler, H3Event } from "vinxi/http"
+import { eventHandler } from "vinxi/http"
 import { getManifest } from "vinxi/manifest"
 import { renderToStringAsync } from "preact-render-to-string"
 import Document from "./Document.js"
-import App from "../App.js"
+import App from "./App.js"
 import { createAssets } from './assets.js' 
-import { SSRRedirect } from '../types.js'
+import { SSRRedirect } from './types.js'
 
 export const startServer = () => eventHandler(async (event) => {
   const clientManifest = getManifest("client");
@@ -40,5 +40,3 @@ export const startServer = () => eventHandler(async (event) => {
     }
   }
 })
-
-export type APIEvent = H3Event & { params: Record<string, string> }

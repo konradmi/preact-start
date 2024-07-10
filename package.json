@@ -12,9 +12,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./router": "./dist/router/index.js",
-    "./server": "./dist/server/index.js",
-    "./client": "./dist/client/index.js"
+    "./router": "./dist/router.js",
+    "./server": "./dist/server.js",
+    "./client": "./dist/client.js"
   },
   "typesVersions": {
     "*": {
@@ -22,30 +22,34 @@
         "./dist/index.d.ts"
       ],
       "router": [
-        "./dist/router/index.d.ts"
+        "./dist/router.d.ts"
       ],
       "server": [
-        "./dist/server/index.d.ts"
+        "./dist/server.d.ts"
       ],
       "client": [
-        "./dist/client/index.d.ts"
+        "./dist/client.d.ts"
       ]
     }
   },
   "scripts": {
-    "build": "rm -rf dist && pnpm tsc"
+    "build": "rm -rf dist && tsc"
   },
   "dependencies": {
     "@vinxi/server-functions": "^0.3.3",
     "es-module-lexer": "^1.5.4",
     "preact-render-to-string": "^6.5.5",
-    "preact-router": "^4.1.2",
     "radix3": "^1.1.2"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.2",
     "preact": "^10.22.1",
+    "preact-router": "^4.1.2",
     "typescript": "^5.5.3",
-    "vinxi": "^0.3.12"
+    "vinxi": "^0.3.12",
+    "vite": "^5.3.3"
+  },
+  "peerDependencies": {
+    "preact-router": "^4.1.2"
   }
 }

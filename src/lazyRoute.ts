@@ -71,6 +71,7 @@ export default function lazyRoute(
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
+
 			return { default: Comp };
 		} else {
 			const mod = await component.import();
@@ -90,9 +91,9 @@ export default function lazyRoute(
 			const Comp = forwardRef((props, ref) => {
 				return createElement(
 					Fragment,
-					null,
-					...assets.map((asset) => renderAsset(asset)),
+					// null,
 					createElement(Component, { ...props, ...loaderProps, ref: ref }),
+					// ...assets.map((asset) => renderAsset(asset)),
 				);
 			});
 			return { default: Comp };

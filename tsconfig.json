@@ -4,15 +4,17 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "module": "ESNext",
+    "module": "NodeNext",
     "target": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "types": ["vinxi/types/client"],
     "outDir": "./dist",
     "declaration": true,
     "allowJs": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": ["./src"],
+  "exclude": ["node_modules"]
 }
