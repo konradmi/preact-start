@@ -1,3 +1,4 @@
+// @ts-expect-error - this package is not typed
 import { createApp } from "vinxi";
 import { preact } from "@preact/preset-vite";
 import { MyFileSystemRouter } from "./fsRouter.js";
@@ -18,6 +19,7 @@ export const createPreactStartApp = () => {
         name: "client",
         type: "client",
         handler: "./app/entry-client.tsx",
+        // @ts-expect-error - this package is not typed
         routes: (router, app) => {
           return new MyFileSystemRouter(
             {
@@ -38,6 +40,7 @@ export const createPreactStartApp = () => {
         type: "http",
         handler: "./framework/entry-api.ts",
         base: "/api",
+        // @ts-expect-error - this package is not typed
         routes: (router, app) => {
           return new ApiRoutesRouting(
             {
@@ -54,6 +57,7 @@ export const createPreactStartApp = () => {
         name: "ssr",
         type: "http",
         handler: "./app/entry-server.tsx",
+        // @ts-expect-error - this package is not typed
         routes: (router, app) => {
           return new MyFileSystemRouter(
             {
