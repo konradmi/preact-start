@@ -1,0 +1,52 @@
+{
+  "name": "preact-start",
+  "version": "0.0.20",
+  "type": "module",
+  "description": "Minimal Preact metaframework",
+  "repository": "git@github.com:konradmi/preact-start.git",
+  "author": "Konrad Miekus <miekus.konrad@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./router": "./dist/router.js",
+    "./server": "./dist/server.js",
+    "./client": "./dist/client.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ],
+      "router": [
+        "./dist/router.d.ts"
+      ],
+      "server": [
+        "./dist/server.d.ts"
+      ],
+      "client": [
+        "./dist/client.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "dependencies": {
+    "@preact/preset-vite": "^2.8.3",
+    "@vinxi/server-functions": "^0.3.3",
+    "es-module-lexer": "^1.5.4",
+    "preact-render-to-string": "^6.5.5",
+    "radix3": "^1.1.2"
+  },
+  "devDependencies": {
+    "preact": "^10.22.1",
+    "preact-router": "^4.1.2",
+    "typescript": "^5.5.3",
+    "vinxi": "^0.3.14",
+    "vite": "^5.3.3"
+  }
+}
