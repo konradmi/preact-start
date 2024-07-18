@@ -5,13 +5,13 @@ node_modules
 .output
 .nitro
 .build
+.turbo
+.vinxi
 playwright-report
 stats.html
 .fixtures
 *.code-workspace
 app.config.timestamp_*
-yarn-error.log
-.vinxi
 
 dist
 

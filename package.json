@@ -2,12 +2,12 @@
   "name": "preact-start-monorepo",
   "version": "0.0.1",
   "author": "Konrad Miekus <miekus.konrad@gmail.com>",
+  "packageManager": "pnpm@9.5.0",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter preact-start build",
-    "examples:counter": "pnpm --filter counter dev"
+    "examples:counter:dev": "turbo run examples:counter:dev"
   },
   "devDependencies": {
-    "preact-start": "workspace:*"
+    "turbo": "^2.0.7"
   }
 }

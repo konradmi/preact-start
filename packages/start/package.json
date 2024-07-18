@@ -33,7 +33,8 @@
     }
   },
   "scripts": {
-    "build": "rm -rf dist && tsc"
+    "build": "rm -rf dist && tsc",
+    "dev": "tsc -w"
   },
   "dependencies": {
     "@preact/preset-vite": "^2.8.3",
