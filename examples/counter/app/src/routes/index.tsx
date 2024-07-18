@@ -1,4 +1,4 @@
-import { Redirect } from "../../../framework/router";
+import { Redirect } from "preact-start/router";
 
 const Index = () => {
   return (

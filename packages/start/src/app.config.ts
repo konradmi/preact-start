@@ -4,6 +4,7 @@ import { preact } from "@preact/preset-vite";
 import { MyFileSystemRouter } from "./fsRouter.js";
 import { ApiRoutesRouting } from "./apiRouter.js";
 import path from "path";
+import { config } from "vinxi/plugins/config";
 // @ts-expect-error - this package is not typed
 import { serverFunctions } from "@vinxi/server-functions/plugin";
 
@@ -68,7 +69,11 @@ export const createPreactStartApp = () => {
             app
           );
         },
-        plugins: () => [preact()],
+        plugins: () => [preact(), config('server', {
+          ssr: {
+            noExternal: ['preact-start'],
+          }
+        })],
         target: "server",
       },
     ],
