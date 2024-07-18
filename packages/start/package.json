@@ -1,6 +1,6 @@
 {
   "name": "preact-start",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "type": "module",
   "description": "Minimal Preact metaframework",
   "repository": "git@github.com:konradmi/preact-start.git",

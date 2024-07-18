@@ -1,4 +1,3 @@
-import { eventHandler } from "vinxi/http"
 import { getManifest } from "vinxi/manifest"
 import { renderToStringAsync } from "preact-render-to-string"
 import Document from "./Document.js"
@@ -6,7 +5,7 @@ import App from "./App.js"
 import { createAssets } from './assets.js' 
 import { SSRRedirect } from './types.js'
 
-export const startServer = () => eventHandler(async (event) => {
+export const startServer = async (event: any) => {
   const clientManifest = getManifest("client");
 
   const clientHandler = clientManifest.inputs[clientManifest.handler]
@@ -39,4 +38,4 @@ export const startServer = () => eventHandler(async (event) => {
       throw e;
     }
   }
-})
+}
