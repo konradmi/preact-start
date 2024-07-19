@@ -5,7 +5,8 @@
   "packageManager": "pnpm@9.5.0",
   "private": true,
   "scripts": {
-    "examples:counter:dev": "turbo run examples:counter:dev"
+    "examples:counter": "pnpm config set link-workspace-packages false && pnpm install && pnpm --filter \"counter\" dev",
+    "examples:counter:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:counter:dev"
   },
   "devDependencies": {
     "turbo": "^2.0.7"
