@@ -1,6 +1,6 @@
 import { getRequestHeaders, getQuery } from 'vinxi/http'
 
-import { APIEvent } from '../../../../../framework/types'
+import { APIEvent } from 'preact-start/types'
 
 export const GET = async (event: APIEvent) => {
   const headers = getRequestHeaders(event);

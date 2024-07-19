@@ -9,7 +9,7 @@ for (const route of fileRoutes) {
   router.insert(route.path, route)
 }
 
-const handleApiRequests = eventHandler(async (event) => {
+export const startApiServer = () => eventHandler(async (event) => {
   const { node } = event;
   const { req, res } = node;
 
@@ -26,5 +26,3 @@ const handleApiRequests = eventHandler(async (event) => {
   res.statusCode = 404;
   res.end();
 })
-
-export default handleApiRequests

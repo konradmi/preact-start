@@ -1,6 +1,6 @@
 {
   "name": "preact-start",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "type": "module",
   "description": "Minimal Preact metaframework",
   "repository": "git@github.com:konradmi/preact-start.git",
@@ -14,7 +14,9 @@
     ".": "./dist/index.js",
     "./router": "./dist/router.js",
     "./server": "./dist/server.js",
-    "./client": "./dist/client.js"
+    "./client": "./dist/client.js",
+    "./api-server": "./dist/apiServer.js",
+    "./types": "./dist/types.js"
   },
   "typesVersions": {
     "*": {

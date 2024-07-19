@@ -39,7 +39,7 @@ export const createPreactStartApp = () => {
       {
         name: "api",
         type: "http",
-        handler: "./framework/entry-api.ts",
+        handler: "./app/entry-api-server.tsx",
         base: "/api",
         // @ts-expect-error - this package is not typed
         routes: (router, app) => {

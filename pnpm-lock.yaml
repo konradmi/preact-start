@@ -24,8 +24,8 @@ importers:
         specifier: ^4.1.2
         version: 4.1.2(preact@10.22.1)
       preact-start:
-        specifier: ^0.0.24
-        version: 0.0.24(@babel/core@7.24.9)(preact@10.22.1)(vinxi@0.3.14(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
+        specifier: workspace:*
+        version: link:../../packages/start
       vinxi:
         specifier: ^0.3.14
         version: 0.3.14(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3)
@@ -1885,18 +1885,10 @@ packages:
     peerDependencies:
       preact: '>=10'
 
-  preact-render-to-string@6.5.6:
-    resolution: {integrity: sha512-msFdv7/ooTV6OIodAnU87V4ct+m2DA1rwaRYV+DNvTYpm/ZInQfoGrcHmbTkV7TOcJaHh5wt1NjiALA46Jyxhw==}
-    peerDependencies:
-      preact: '>=10'
-
   preact-router@4.1.2:
     resolution: {integrity: sha512-uICUaUFYh+XQ+6vZtQn1q+X6rSqwq+zorWOCLWPF5FAsQh3EJ+RsDQ9Ee+fjk545YWQHfUxhrBAaemfxEnMOUg==}
     peerDependencies:
       preact: '>=10'
-
-  preact-start@0.0.24:
-    resolution: {integrity: sha512-G239stPD6ZgjxZlsj0cPb0bd5pyLe9NAbfsJff298bY3aT2GU0BthyVb7eYGjfEz+Pvrc9iCikmk9jKXW+zwJA==}
 
   preact@10.22.1:
     resolution: {integrity: sha512-jRYbDDgMpIb5LHq3hkI0bbl+l/TQ9UnkdQ0ww+lp+4MMOdqaUYdFc5qeyP+IV8FAd/2Em7drVPeKdQxsiWCf/A==}
@@ -4241,27 +4233,9 @@ snapshots:
     dependencies:
       preact: 10.22.1
 
-  preact-render-to-string@6.5.6(preact@10.22.1):
-    dependencies:
-      preact: 10.22.1
-
   preact-router@4.1.2(preact@10.22.1):
     dependencies:
       preact: 10.22.1
-
-  preact-start@0.0.24(@babel/core@7.24.9)(preact@10.22.1)(vinxi@0.3.14(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3)):
-    dependencies:
-      '@preact/preset-vite': 2.9.0(@babel/core@7.24.9)(preact@10.22.1)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
-      '@vinxi/server-functions': 0.3.3(vinxi@0.3.14(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))
-      es-module-lexer: 1.5.4
-      preact-render-to-string: 6.5.6(preact@10.22.1)
-      radix3: 1.1.2
-    transitivePeerDependencies:
-      - '@babel/core'
-      - preact
-      - supports-color
-      - vinxi
-      - vite
 
   preact@10.22.1: {}
 

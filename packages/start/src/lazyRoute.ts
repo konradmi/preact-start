@@ -91,9 +91,8 @@ export default function lazyRoute(
 			const Comp = forwardRef((props, ref) => {
 				return createElement(
 					Fragment,
-					// null,
 					createElement(Component, { ...props, ...loaderProps, ref: ref }),
-					// ...assets.map((asset) => renderAsset(asset)),
+					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
 			return { default: Comp };
