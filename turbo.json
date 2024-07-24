@@ -1,6 +1,9 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "tasks": {
+    "examples:blog:dev": {
+      "dependsOn": ["preact-start#dev", "blog#dev"]
+    },
     "examples:counter:dev": {
       "dependsOn": ["preact-start#dev", "counter#dev"],
       "outputs": []
@@ -12,6 +15,10 @@
       "outputs": []
     },
     "counter#dev": {
+      "dependsOn": ["^preact-start#build"],
+      "outputs": []
+    },
+    "blog#dev": {
       "dependsOn": ["^preact-start#build"],
       "outputs": []
     }

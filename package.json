@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "examples:counter": "pnpm config set link-workspace-packages false && pnpm install && pnpm --filter \"counter\" dev",
-    "examples:counter:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:counter:dev"
+    "examples:counter:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:counter:dev",
+    "examples:blog": "pnpm config set link-workspace-packages false && pnpm install && pnpm --filter \"blog\" dev",
+    "examples:blog:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:blog:dev"
   },
   "devDependencies": {
     "turbo": "^2.0.7"

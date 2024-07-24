@@ -11,7 +11,7 @@ const Redirect = ({ to, replace = true }: { to: string, replace?: boolean }) => 
   if (import.meta.env.SSR) {
     throw new SSRRedirect(to)
   } 
-  return <div/>
+  return null
 }
 
 export default Redirect

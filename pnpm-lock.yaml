@@ -12,6 +12,24 @@ importers:
         specifier: ^2.0.7
         version: 2.0.7
 
+  examples/blog:
+    dependencies:
+      '@preact/preset-vite':
+        specifier: ^2.8.3
+        version: 2.9.0(@babel/core@7.24.9)(preact@10.22.1)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
+      preact:
+        specifier: ^10.22.1
+        version: 10.22.1
+      preact-router:
+        specifier: ^4.1.2
+        version: 4.1.2(preact@10.22.1)
+      preact-start:
+        specifier: workspace:*
+        version: link:../../packages/start
+      vinxi:
+        specifier: ^0.3.14
+        version: 0.3.14(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3)
+
   examples/counter:
     dependencies:
       '@preact/preset-vite':
