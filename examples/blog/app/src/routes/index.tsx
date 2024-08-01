@@ -10,7 +10,7 @@ export const loader = async () => {
 }
 
 const Index = () => {
-  const { posts } = useLoaderData() as { posts: Post[] }
+  const { value: { posts } } = useLoaderData() as { value: { posts: Post[] } }
   return (
     <div>
       <h1>Welcome to the blog</h1>

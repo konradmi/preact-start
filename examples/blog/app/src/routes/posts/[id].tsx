@@ -12,7 +12,7 @@ export const loader = async ({ params }: LoaderArgs) => {
 }
 
 const Post = () => {
-  const { post } = useLoaderData() as { post: Post }
+  const { value: { post } } = useLoaderData() as { value: { post: Post } }
   return (
     <div>
       <h1>Post {post.id}</h1>
