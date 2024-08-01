@@ -2,40 +2,20 @@ import { Fragment, createElement } from "preact";
 import { lazy, forwardRef, useLayoutEffect } from 'preact/compat';
 import { cleanupStyles, preloadStyles, updateStyles } from "vinxi/css";
 import type { Asset, Manifest, LazyComponent, Loader } from "./types.js";
-
-export const renderAsset = ({ tag, attrs: { key, ...attrs } = { key: undefined }, children }: Asset) => {
-	switch (tag) {
-		case "script":
-			if (attrs.src) {
-				return createElement("script", { ...attrs, key: attrs.src });
-			} else {
-				return createElement("script", {
-					...attrs,
-					key: key,
-					dangerouslySetInnerHTML: {
-						__html: children,
-					},
-				});
-			}
-		case "link":
-			return createElement("link", { ...attrs, key: key });
-		case "style":
-			return createElement("style", {
-				...attrs,
-				key: key,
-				dangerouslySetInnerHTML: { __html: children },
-			});
-	}
-}
+import { extractParams, renderAsset } from "./utils.js";
+import { LoaderDataContext } from "./useLoaderData.js";
 
 export default function lazyRoute(
 	component: LazyComponent,
 	loader: Loader | undefined,
+	path: string,
+	ssrUrl: string | undefined,
 	clientManifest: Manifest,
 	serverManifest: Manifest,
 	exported = "default",
 ) {
 	return lazy(async () => {
+		const url = ssrUrl || window.location.pathname
 		if (import.meta.env.DEV) {
 			const manifest = import.meta.env.SSR ? serverManifest : clientManifest;
 			const mod = await manifest.inputs[component.src].import();
@@ -52,7 +32,7 @@ export default function lazyRoute(
 				});
 			}
 
-			const loaderProps = await loader?.require().loader()
+			const loaderProps = await loader?.require().loader({ path, url, params: extractParams(url, path) })
 
 			const Comp = forwardRef((props, ref) => {
 				if (typeof window !== "undefined") { 
@@ -67,7 +47,11 @@ export default function lazyRoute(
 				return createElement(
 					Fragment,
 					null,
-					createElement(Component, { ...props, ...loaderProps, ref: ref }),
+					createElement(
+						LoaderDataContext.Provider,
+						{ value: loaderProps },
+						createElement(Component, { ...props, ...loaderProps, ref: ref })
+					),
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
@@ -86,7 +70,7 @@ export default function lazyRoute(
 				preloadStyles(styles);
 			}
 
-			const loaderProps = await loader?.require().loader()
+			const loaderProps = await loader?.require().loader({ path, url, params: extractParams(url, path) })
 
 			const Comp = forwardRef((props, ref) => {
 				return createElement(

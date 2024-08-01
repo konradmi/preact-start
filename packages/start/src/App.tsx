@@ -17,7 +17,20 @@ const App = ({ url }: AppProps) => {
     <Suspense fallback={<></>}>
       <Router url={url}>
         {
-          fileRoutes.map(route => <Route key={route.path} path={route.path} component={lazyRoute(route.$component, route.$$loader, clientManifest, serverManifest)} />)
+          fileRoutes.map(route => <Route
+            key={route.path}
+            path={route.path}
+            component={
+              lazyRoute(
+                route.$component,
+                route.$$loader,
+                route.path,
+                url,
+                clientManifest,
+                serverManifest
+            )
+          }
+          />)
         }
       </Router>
     </Suspense>

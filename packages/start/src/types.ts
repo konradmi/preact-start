@@ -28,10 +28,12 @@ export class SSRRedirect extends Error {
 
 export type Loader = {
   src: string;
-  require: () => { loader: () => Promise<any> };
+  require: () => { loader: ({ path, url, params }: LoaderArgs) => Promise<any> };
 }
 
 export type HTTPMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
 export type APIEvent = H3Event & { params: Record<string, string> }
+
+export type LoaderArgs = { path: string, url: string, params: Record<string, string> | null }
 
