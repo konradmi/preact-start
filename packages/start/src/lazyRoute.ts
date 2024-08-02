@@ -3,7 +3,6 @@ import { lazy, forwardRef, useLayoutEffect } from 'preact/compat';
 import { cleanupStyles, preloadStyles, updateStyles } from "vinxi/css";
 import type { Asset, Manifest, LazyComponent, Loader } from "./types.js";
 import { extractParams, renderAsset } from "./utils.js";
-import { LoaderDataProvider } from "./useLoaderData.js";
 
 export default function lazyRoute(
 	component: LazyComponent,
@@ -47,11 +46,7 @@ export default function lazyRoute(
 				return createElement(
 					Fragment,
 					null,
-					createElement(
-						LoaderDataProvider,
-						{ initialValue: loaderProps },
-						createElement(Component, { ...props, ...loaderProps, ref: ref })
-					),
+					createElement(Component, { ...props, ...loaderProps, ref: ref }),
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
@@ -75,11 +70,7 @@ export default function lazyRoute(
 			const Comp = forwardRef((props, ref) => {
 				return createElement(
 					Fragment,
-					createElement(
-						LoaderDataProvider,
-						{ initialValue: loaderProps },
-						createElement(Component, { ...props, ...loaderProps, ref: ref })
-					),
+					createElement(Component, { ...props, ...loaderProps, ref: ref }),
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
