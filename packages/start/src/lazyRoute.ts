@@ -1,20 +1,16 @@
 import { Fragment, createElement } from "preact";
 import { lazy, forwardRef, useLayoutEffect } from 'preact/compat';
 import { cleanupStyles, preloadStyles, updateStyles } from "vinxi/css";
-import type { Asset, Manifest, LazyComponent, Loader } from "./types.js";
-import { extractParams, renderAsset } from "./utils.js";
+import type { Asset, Manifest, LazyComponent } from "./types.js";
+import { renderAsset } from "./utils.js";
 
 export default function lazyRoute(
 	component: LazyComponent,
-	loader: Loader | undefined,
-	path: string,
-	ssrUrl: string | undefined,
 	clientManifest: Manifest,
 	serverManifest: Manifest,
 	exported = "default",
 ) {
 	return lazy(async () => {
-		const url = ssrUrl || window.location.pathname
 		if (import.meta.env.DEV) {
 			const manifest = import.meta.env.SSR ? serverManifest : clientManifest;
 			const mod = await manifest.inputs[component.src].import();
@@ -31,8 +27,6 @@ export default function lazyRoute(
 				});
 			}
 
-			const loaderProps = await loader?.require().loader({ path, url, params: extractParams(url, path) })
-
 			const Comp = forwardRef((props, ref) => {
 				if (typeof window !== "undefined") { 
 					useLayoutEffect(() => {
@@ -46,7 +40,7 @@ export default function lazyRoute(
 				return createElement(
 					Fragment,
 					null,
-					createElement(Component, { ...props, ...loaderProps, ref: ref }),
+					createElement(Component, { ...props, ref: ref }),
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
@@ -65,12 +59,10 @@ export default function lazyRoute(
 				preloadStyles(styles);
 			}
 
-			const loaderProps = await loader?.require().loader({ path, url, params: extractParams(url, path) })
-
 			const Comp = forwardRef((props, ref) => {
 				return createElement(
 					Fragment,
-					createElement(Component, { ...props, ...loaderProps, ref: ref }),
+					createElement(Component, { ...props, ref: ref }),
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});

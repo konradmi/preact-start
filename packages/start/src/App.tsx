@@ -4,7 +4,6 @@ import { getManifest } from "vinxi/manifest"
 import fileRoutes from "vinxi/routes";
 import lazyRoute from './lazyRoute.js'
 
-
 type AppProps = {
   url?: string // url defined means SSR mode.
 }
@@ -23,9 +22,6 @@ const App = ({ url }: AppProps) => {
             component={
               lazyRoute(
                 route.$component,
-                route.$$loader,
-                route.path,
-                url,
                 clientManifest,
                 serverManifest
             )

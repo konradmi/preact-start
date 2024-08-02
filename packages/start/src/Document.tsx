@@ -6,6 +6,7 @@ const Document = (props: {
   manifest: object,
   assets: preact.ComponentChildren
   scriptTag: preact.ComponentChildren
+  initialLoaderPropsTag: preact.ComponentChildren
 }) => {
   return (
     <html>
@@ -25,6 +26,7 @@ const Document = (props: {
         <div id="app">{props.children}</div>
       </body>
       {props.scriptTag}
+      {props.initialLoaderPropsTag}
     </html>
   )
 }

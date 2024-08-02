@@ -1,5 +1,6 @@
 import { createElement } from "preact";
 import type { Asset } from "./types.js";
+import { RouteModule } from "vinxi/routes";
 
 export const extractParams = (url: string, path: string): Record<string, string> | null => {
   const urlSegments = url.split('/').filter(segment => segment)
@@ -49,4 +50,17 @@ export const renderAsset = ({ tag, attrs: { key, ...attrs } = { key: undefined }
 				dangerouslySetInnerHTML: { __html: children },
 			});
 	}
+}
+
+export const getLoaderForTheURL = (fileRoutes: RouteModule[], url: string) => {
+	for (const route of fileRoutes) {
+		const params = extractParams(url, route.path)
+		if (params) {
+			return {
+				loader: route.$$loader,
+				path: route.path,
+			}
+		}
+	}
+	return null
 }
