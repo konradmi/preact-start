@@ -1,10 +1,10 @@
 import type { LoaderArgs } from 'preact-start/types'
 import { useLoaderData } from 'preact-start/router'
+import { Link } from 'preact-start/router'
 
 import type { Post } from '../../types/post'
 
 export const loader = async ({ params }: LoaderArgs) => {
-  console.log('params', params)
   const post = await (await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)).json() as Post
   return {
     post
@@ -12,9 +12,10 @@ export const loader = async ({ params }: LoaderArgs) => {
 }
 
 const Post = () => {
-  const { value: { post } } = useLoaderData() as { value: { post: Post } }
+  const { post } = useLoaderData() as { post: Post }
   return (
     <div>
+      <Link to='/'>Home</Link>
       <h1>Post {post.id}</h1>
       <h2>{post.title}</h2>
       <p>{post.body}</p>

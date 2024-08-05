@@ -5,8 +5,9 @@ import Document from "./Document.js"
 import App from "./App.js"
 import { createAssets } from "./assets.js"
 import { SSRRedirect } from "./types.js"
-import { extractParams, getLoaderForTheURL } from "./utils.js";
+import { extractParams, getLoaderForTheURL } from "./utils.js"
 import { LoaderDataProvider } from "./loader.js"
+import type { LoaderData } from "./loader.js"
 import fileRoutes from "vinxi/routes"
 
 export const startServer = () => eventHandler(async (event) => {
@@ -27,13 +28,19 @@ export const startServer = () => eventHandler(async (event) => {
   const url = event.node.req.url!
   const pathname = new URL(url, "http://domain").pathname
   const loaderAndPath = getLoaderForTheURL(fileRoutes, pathname)
-  const loaderProps = await loaderAndPath?.loader?.require().loader({ path: loaderAndPath.path, url, params: extractParams(url, loaderAndPath.path) })
+  const loaderData = await loaderAndPath?.loader?.require().loader({ path: loaderAndPath.path, url, params: extractParams(url, loaderAndPath.path) })
 
-  const initialLoaderPropsTag = loaderProps ? <script dangerouslySetInnerHTML={{ __html: `window.__LOADER_PROPS__ = ${JSON.stringify(loaderProps)}` }}></script> : null
+  const initialValue = {
+    loading: false,
+    error: false,
+    data: loaderData
+  } as LoaderData
+
+  const initialloaderDataTag = loaderData ? <script dangerouslySetInnerHTML={{ __html: `window.__LOADER_PROPS__ = ${JSON.stringify(initialValue)}` }}></script> : null
   try {
     const renderedApp = await renderToStringAsync(
-      <Document manifest={manifest} assets={<Assets/>} scriptTag={scriptTag} initialLoaderPropsTag={initialLoaderPropsTag}>
-        <LoaderDataProvider initialValue={loaderProps}>
+      <Document manifest={manifest} assets={<Assets/>} scriptTag={scriptTag} initialLoaderPropsTag={initialloaderDataTag}>
+        <LoaderDataProvider initialValue={initialValue}>
           <App url={url}/>
         </LoaderDataProvider>
       </Document>

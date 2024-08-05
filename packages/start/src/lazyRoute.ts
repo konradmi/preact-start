@@ -1,8 +1,9 @@
-import { Fragment, createElement } from "preact";
+import { Fragment, FunctionComponent, createElement } from "preact";
 import { lazy, forwardRef, useLayoutEffect } from 'preact/compat';
 import { cleanupStyles, preloadStyles, updateStyles } from "vinxi/css";
 import type { Asset, Manifest, LazyComponent } from "./types.js";
 import { renderAsset } from "./utils.js";
+import LazyRouteWrapper from "./LazyRouteWrapper.js";
 
 export default function lazyRoute(
 	component: LazyComponent,
@@ -40,7 +41,7 @@ export default function lazyRoute(
 				return createElement(
 					Fragment,
 					null,
-					createElement(Component, { ...props, ref: ref }),
+					createElement(LazyRouteWrapper as FunctionComponent, null, createElement(Component, { ...props, ref: ref })),
 					...assets.map((asset) => renderAsset(asset)),
 				);
 			});
