@@ -8,6 +8,10 @@
       "dependsOn": ["preact-start#dev", "counter#dev"],
       "outputs": []
     },
+    "examples:api-server:dev": {
+      "dependsOn": ["preact-start#dev", "api-server#dev"],
+      "outputs": []
+    },
     "preact-start#dev": {
       "outputs": []
     },
@@ -15,6 +19,10 @@
       "outputs": []
     },
     "counter#dev": {
+      "dependsOn": ["^preact-start#build"],
+      "outputs": []
+    },
+    "api-server#dev": {
       "dependsOn": ["^preact-start#build"],
       "outputs": []
     },

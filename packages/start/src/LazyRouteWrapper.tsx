@@ -7,8 +7,8 @@ type LazyRouteWrapperProps = {
 const LazyRouteWrapper = ({ children }: LazyRouteWrapperProps) => {
   const context = useContextData()
 
-  if (context.value.loading) return 'Loading....'
-  if (context.value.error) return 'Error!'
+  if (context.value.loading) return null
+  if (context.value.error) return null
   return children
 }
 
