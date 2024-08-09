@@ -12,7 +12,7 @@ importers:
         specifier: ^2.0.7
         version: 2.0.7
 
-  examples/api-server:
+  examples/api-server-todos:
     dependencies:
       preact-start:
         specifier: workspace:*
