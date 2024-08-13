@@ -10,10 +10,11 @@ A minimal Preact metaframework built on top of Vinxi and preact-router. It provi
 
 ## Examples
 
-There are 3 examples available:
+There are 4 examples available:
 - [Counter](examples/counter/README.md)
 - [Blog](examples/blog/README.md)
 - [Api Server Todos](examples/api-server-todos/README.md)
+- [Server Actions Todos](examples/server-actions-todos/README.md)
 
 ## APIs
 
