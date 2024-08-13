@@ -76,3 +76,13 @@ const Post = () => {
 ```
 
 The loader function is also called on the client on navigation before the next route is rendered. The next route will not be rendered until the loader function has resolved so the `useLoaderData()` hook will always return the fetched data.
+
+### Server functions
+You can mark a function or a file as `"use server";` to run it on server only.
+
+```
+"use server";
+const serverOnly = () => {
+  console.log('This will only run on the server')
+}
+```
