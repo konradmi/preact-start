@@ -1,0 +1,21 @@
+{
+  "name": "server-actions-todos",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@preact/preset-vite": "^2.8.3",
+    "preact": "^10.22.1",
+    "preact-router": "^4.1.2",
+    "preact-start": "workspace:*",
+    "vinxi": "^0.3.14"
+  }
+}

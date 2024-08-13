@@ -12,6 +12,10 @@
       "dependsOn": ["preact-start#dev", "api-server-todos#dev"],
       "outputs": []
     },
+    "examples:server-actions-todos:dev": {
+      "dependsOn": ["preact-start#dev", "server-actions-todos#dev"],
+      "outputs": []
+    },
     "preact-start#dev": {
       "outputs": []
     },
@@ -27,6 +31,10 @@
       "outputs": []
     },
     "blog#dev": {
+      "dependsOn": ["^preact-start#build"],
+      "outputs": []
+    },
+    "server-actions-todos#dev": {
       "dependsOn": ["^preact-start#build"],
       "outputs": []
     }

@@ -10,7 +10,9 @@
     "examples:blog": "pnpm config set link-workspace-packages false && pnpm install && pnpm --filter \"blog\" dev",
     "examples:blog:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:blog:dev",
     "examples:api-server-todos": "pnpm config set link-workspace-packages false && pnpm install && pnpm --filter \"api-server-todos\" dev",
-    "examples:api-server-todos:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:api-server-todos:dev"
+    "examples:api-server-todos:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:api-server-todos:dev",
+    "examples:server-actions-todos": "pnpm config set link-workspace-packages false && pnpm install && pnpm --filter \"server-actions-todos\" dev",
+    "examples:server-actions-todos:dev": "pnpm config set link-workspace-packages true && pnpm install && turbo run examples:server-actions-todos:dev"
   },
   "devDependencies": {
     "turbo": "^2.0.7"
