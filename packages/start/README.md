@@ -8,6 +8,14 @@ A minimal Preact metaframework built on top of Vinxi and preact-router. It provi
 - Data pre-loading
 - TS support
 
+## Installation
+
+To create a new project, run:
+
+```bash
+pnpm create preact-start [project-name]
+```
+
 ## Examples
 
 There are 4 examples available:

@@ -10,6 +10,14 @@ A monorepo hosting preact-start and examples.
 - Data pre-loading
 - TS support
 
+## Installation
+
+To create a new project, run:
+
+```bash
+pnpm create preact-start [project-name]
+```
+
 ## Examples
 
 There are 4 examples available:
