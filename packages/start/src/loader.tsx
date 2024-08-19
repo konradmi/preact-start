@@ -1,5 +1,9 @@
-import { useContext, useState } from 'preact/hooks'
+/// <reference types="dom-navigation" />
+
 import { createContext } from 'preact'
+import fileRoutes from "vinxi/routes"
+import { useContext, useState, useEffect } from 'preact/hooks'
+import { preloadData } from "./utils.js"
 
 export const LoaderDataContext = createContext<{
   value: LoaderData,
@@ -21,6 +25,16 @@ type LoaderDataProviderProps = {
 
 export const LoaderDataProvider = ({ children, initialValue }: LoaderDataProviderProps) => {
   const [value, setValue] = useState<LoaderData>(initialValue);
+
+  const navigationEventHandler = (navigateEvent: NavigateEvent) => {
+    const url = new URL(navigateEvent.destination.url).pathname
+    preloadData(fileRoutes, { value, setValue }, url)
+  }
+
+  useEffect(() => {
+    window.navigation.addEventListener('navigate', navigationEventHandler)
+    return () => window.navigation.removeEventListener('navigate', navigationEventHandler)
+  }, [])
 
   return (
     <LoaderDataContextProvider value={{ value, setValue }}>

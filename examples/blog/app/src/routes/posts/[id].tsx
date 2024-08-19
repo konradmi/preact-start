@@ -1,6 +1,6 @@
 import type { LoaderArgs } from 'preact-start/types'
 import { useLoaderData } from 'preact-start/router'
-import { Link } from 'preact-start/router'
+import { Link } from 'preact-router/match'
 
 import type { Post } from '../../types/post'
 
@@ -15,7 +15,7 @@ const Post = () => {
   const { post } = useLoaderData() as { post: Post }
   return (
     <div>
-      <Link to='/'>Home</Link>
+      <Link href='/'>Home</Link>
       <h1>Post {post.id}</h1>
       <h2>{post.title}</h2>
       <p>{post.body}</p>

@@ -93,6 +93,9 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
     devDependencies:
+      '@types/dom-navigation':
+        specifier: ^1.0.3
+        version: 1.0.3
       preact:
         specifier: ^10.22.1
         version: 10.22.1
@@ -857,6 +860,9 @@ packages:
 
   '@types/braces@3.0.4':
     resolution: {integrity: sha512-0WR3b8eaISjEW7RpZnclONaLFDf7buaowRHdqLp4vLj54AsSAYWfh3DRbfiYJY9XDxMgx1B4sE1Afw2PGpuHOA==}
+
+  '@types/dom-navigation@1.0.3':
+    resolution: {integrity: sha512-nbkhQ2o6UUBn1uLwSrA//rFkqs8XRk5d7cE6jzzTl8MAIUs/nFMtFqVESwiYY1HGZxflzbFlXsZ8NNzTaoFs1Q==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -3092,6 +3098,8 @@ snapshots:
   '@sindresorhus/merge-streams@2.3.0': {}
 
   '@types/braces@3.0.4': {}
+
+  '@types/dom-navigation@1.0.3': {}
 
   '@types/estree@1.0.5': {}
 

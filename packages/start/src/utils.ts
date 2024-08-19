@@ -1,6 +1,7 @@
 import { createElement } from "preact";
 import type { Asset } from "./types.js";
 import { RouteModule } from "vinxi/routes";
+import { useContextData } from "./loader.js";
 
 export const extractParams = (url: string, path: string): Record<string, string> | null => {
   const urlSegments = url.split('/').filter(segment => segment)
@@ -63,4 +64,27 @@ export const getLoaderForTheURL = (fileRoutes: RouteModule[], url: string) => {
 		}
 	}
 	return null
+}
+
+export const preloadData = (
+	fileRoutes: RouteModule[],
+	context: ReturnType<typeof useContextData>, 
+	url: string
+) => {
+	const loaderAndPath = getLoaderForTheURL(fileRoutes, url)
+	// start executing load for the next page and continue with the navigation
+	context.setValue({
+		data: null,
+		loading: true,
+		error: false
+	})
+	loaderAndPath?.loader?.require().loader({
+		path: loaderAndPath.path,
+		url,
+		params: extractParams(url, loaderAndPath.path)
+	}).then((res: any) => context.setValue({
+		data: res,
+		loading: false,
+		error: false,
+	}))  
 }

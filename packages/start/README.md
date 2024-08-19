@@ -36,9 +36,7 @@ Route params are also supported. For example, to create a route at `/user/:id`, 
 
 #### Navigation
 
-- Link
-
-To navigate to a route, use the `Link` component from `preact-start/router`. The `to` prop should be the path to navigate to. If the `to` route exports `loader`, the loader will be called before the route is rendered.
+- `preact-start` is built on top of [`preact-router`](https://github.com/preactjs/preact-router), so the same navigation rules apply here.
 
 - Redirect
 
